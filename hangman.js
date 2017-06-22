@@ -3,8 +3,9 @@ function load_words(wordString) {
   return wordString.split(" ");
 }
 
-//debug / test
+//test
 //console.log(load_words(wordList));
+//passed
 
 function choose_word(wordArray) {
   /*
@@ -16,8 +17,11 @@ function choose_word(wordArray) {
 
 //test
 // console.log(choose_word(load_words(wordList)));
+//passed
 
-const secret_word = choose_word(load_words(wordList)));
+let secret_word = choose_word(load_words(wordList));
+
+
 
 function is_word_guessed(secret_word, letters_guessed) {
   /*
@@ -29,10 +33,18 @@ function is_word_guessed(secret_word, letters_guessed) {
   letters_guessed;
     False otherwise
   */
-  let secret_word = secret_word.split("");
-  let letters_guessed = letters_guessed.split("");
-  for letter in secret_word:
-      if letter not in letters_guessed:
-          return False
-  return True
+  secret_word = secret_word.split("");
+  letters_guessed = letters_guessed.split("");
+  for (let i = 0; i < secret_word.length; i++) {
+    if (letters_guessed.indexOf(secret_word[i]) === -1) {
+      return false;
+    }
+  }
+  return true;
 }
+
+//test
+// let letters_guessed = 'somethinklpg';
+// console.log(is_word_guessed('something', letters_guessed));//true
+// letters_guessed = 'somethinklp';//false
+//passed
