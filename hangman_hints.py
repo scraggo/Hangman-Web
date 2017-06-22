@@ -156,14 +156,14 @@ def reduceList(myList, num):
     '''
     return [word for word in wordlist if len(word) == num]
 
-def matchLetter(l1, l2):
+def matchLetter(letter1, letter2):
     '''
     given two letters, functions returns True if they match (or the first letter
     is '_') and returns false otherwise.
     '''
-    l1 = l1.lower()
-    if l1 == l2: return True
-    elif l1 == '_': return True
+    letter1 = letter1.lower()
+    if letter1 == letter2: return True
+    elif letter1 == '_': return True
     else: return False
 
 def letterTally(word):
