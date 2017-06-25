@@ -17,3 +17,8 @@
 // secret_word = 'guess';
 // var letters_guessed = 'gabcd';
 // console.log(get_guessed_word(secret_word, letters_guessed))
+
+//passed
+// var letters_guessed = 'gabcd';
+// console.log(get_available_letters(letters_guessed))
+

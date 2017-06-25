@@ -52,3 +52,16 @@ function get_guessed_word(secret_word, letters_guessed) {
 }
 
 
+    // letters_guessed: list (of letters), which letters have been guessed so far
+    // returns: string (of letters), comprised of letters that represents which
+    // letters have not yet been guessed.
+function get_available_letters(letters_guessed) {
+  var not_guessed = '';
+  var lowerLetters = "abcdefghijklmnopqrstuvwxyz";
+  for (let x = 0; x < lowerLetters.length; x++) {
+    if (letters_guessed.indexOf(lowerLetters[x]) === -1) {
+      not_guessed += lowerLetters[x];
+    }
+  }
+  return not_guessed;
+}
