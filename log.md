@@ -4,6 +4,11 @@
 ## Project goals
 Create Hangman game in vanilla JavaScript including:
 - UI with easy-to-use inputs
+    - ideas:
+    - https://codepen.io/cathydutton/pen/ldazc
+    - http://hangmanjs.andrewhathaway.net/
+    - https://jsfiddle.net/phollott/x29ym2ag/
+    
 - graphics
 - possibly sounds
 - etc
