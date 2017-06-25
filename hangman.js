@@ -3,10 +3,6 @@ function load_words(wordString) {
   return wordString.split(" ");
 }
 
-//test
-//console.log(load_words(wordList));
-//passed
-
 function choose_word(wordArray) {
   /*
   wordlist (list): list of words (strings)
@@ -15,12 +11,7 @@ function choose_word(wordArray) {
   return wordArray[Math.floor(Math.random() * wordArray.length)];
 }
 
-//test
-// console.log(choose_word(load_words(wordList)));
-//passed
-
 let secret_word = choose_word(load_words(wordList));
-
 
 
 function is_word_guessed(secret_word, letters_guessed) {
@@ -43,8 +34,21 @@ function is_word_guessed(secret_word, letters_guessed) {
   return true;
 }
 
-//test
-// let letters_guessed = 'somethinklpg';
-// console.log(is_word_guessed('something', letters_guessed));//true
-// letters_guessed = 'somethinklp';//false
-//passed
+
+  // secret_word: string, the word the user is guessing
+  // letters_guessed: list (of letters), which letters have been guessed so far
+  // returns: string, comprised of letters, underscores (_), and spaces that
+  // represents which letters in secret_word have been guessed so far.
+function get_guessed_word(secret_word, letters_guessed) {
+  var dash_word = '';
+  for (let x = 0; x < secret_word.length; x++) {
+    if (letters_guessed.indexOf(secret_word[x]) > -1) {
+      dash_word += secret_word[x]
+    } else {
+      dash_word += '_ ';
+    }
+  }
+  return dash_word;
+}
+
+
