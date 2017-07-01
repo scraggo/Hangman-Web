@@ -24,3 +24,6 @@ Create Hangman game in vanilla JavaScript including:
 - Best way to split up duties?
 - Use ES6 / Babel?
 - Where to host? Codepen is one idea.
+
+## I'm on...
+- Line 55 of hangman.js
