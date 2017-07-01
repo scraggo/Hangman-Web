@@ -22,3 +22,25 @@
 // var letters_guessed = 'gabcd';
 // console.log(get_available_letters(letters_guessed))
 
+//passed
+//console.log(get_user_guess());
+
+//passed
+//display_num_warnings(3);
+//display_num_warnings(2);
+//display_num_warnings(1);
+//display_num_warnings(0);
+//display_num_warnings(-1);
+
+//passed
+//console.log(penalty(3));
+//console.log(penalty(2));
+//console.log(penalty(1));
+//console.log(penalty(0));
+//console.log(penalty(-1));
+
+//passed
+//console.log(num_unique_letters('secretword'));
+//console.log(num_unique_letters('guess'));
+//console.log(num_unique_letters('abcdefg'));
+//console.log(num_unique_letters('sssssss'));
