@@ -44,3 +44,27 @@
 //console.log(num_unique_letters('guess'));
 //console.log(num_unique_letters('abcdefg'));
 //console.log(num_unique_letters('sssssss'));
+
+
+//passed
+//console.log(reduceList(load_words(wordList), 3));
+
+//passed
+//console.log(matchLetter('a', 'a'));
+//console.log(matchLetter('_', 'a'));
+//console.log(matchLetter('c', 't'));
+//console.log(matchLetter('b', 'b'));
+//console.log(matchLetter('h', '_'));
+
+//passed
+//console.log(letterTally('guess'));
+//console.log(letterTally('alpha'));
+//console.log(letterTally('dawg'));
+//console.log(letterTally('aaabbbgggiiiccc'));
+
+//passed
+//console.log(removeSpaces(' b b b b '));
+
+//passed
+//console.log(removeUnderscores('_a_b_c_d'));
+
