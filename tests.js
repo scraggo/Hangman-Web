@@ -68,3 +68,12 @@
 //passed
 //console.log(removeUnderscores('_a_b_c_d'));
 
+// passed
+// console.log(match_with_gaps('a_ _ le', 'apple'));
+// console.log(match_with_gaps('a_ _le', 'amlle'));
+
+
+var wordArray = load_words(wordList);
+show_possible_matches('a__le');
+show_possible_matches('xy_ldf');
+show_possible_matches('coo___');

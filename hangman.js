@@ -185,36 +185,51 @@ function match_with_gaps(my_word, other_word) {
   for (let i = 0; i < my_word.length; i++) {
     if (!matchLetter(my_word[i], other_word[i])) {
       return false;
+      }
+    }
+    var myTally = letterTally(my_word);
+    var otherTally = letterTally(other_word);
+    var item;
+    for (item in myTally) {
+      if (otherTally[item] !== myTally[item]) {
+      //   console.log(item);
+      // }
+      return false;
+      }
+    } 
+    return true;
+  }
+
+
+function show_possible_matches(my_word) {
+  /*
+    my_word: string with _ characters, current guess of secret word
+    returns: nothing, but should print out every word in wordlist that matches my_word
+             Keep in mind that in hangman when a letter is guessed, all the positions
+             at which that letter occurs in the secret word are revealed.
+             Therefore, the hidden letter(_ ) cannot be one of the letters in the word
+             that has already been revealed.
+  */
+  my_word = removeSpaces(my_word);
+  var myList = reduceList(wordArray, my_word.length);//caution: wordArray is global
+  var possible_matches = [];
+  for (let i = 0; i < myList.length; i++) {
+    if (match_with_gaps(my_word, myList[i])) {
+      possible_matches.push(myList[i]);
     }
   }
-  
-  
 
+  if (possible_matches.length > 0) {
+    console.log('Possible word matches are:');
+    for (let i = 0; i < possible_matches.length; i++) {
+      console.log(possible_matches[i]);//want to print in one line
+      // process.stdout.write(possible_matches[i]);
+    }
+  } else console.log('No matches found');
 }
+
+// === END HELPER FUNCTIONS
+
+
 /*
-def match_with_gaps(my_word, other_word):
-    '''
-    my_word: string with _ characters, current guess of secret word
-    other_word: string, regular English word
-    returns: boolean, True if all the actual letters of my_word match the
-        corresponding letters of other_word, or the letter is the special symbol
-        _ , and my_word and other_word are of the same length;
-        False otherwise:
-    '''
-    # FILL IN YOUR CODE HERE AND DELETE "pass"
-    my_word = removeSpaces(my_word)
-    other_word = removeSpaces(other_word)
-
-    for i, letter in enumerate(my_word):
-        if not matchLetter(my_word[i], other_word[i]):
-            return False
-
-    #This function checks if the letterTally in my_word is found in other_word.
-        #Why? if the letters aren't found and the counts are not the same,
-        #the word is not a possible match.
-    # https://stackoverflow.com/questions/9323749/python-check-if-one-dictionary-is-a-subset-of-another-larger-dictionary/41579450#41579450
-    if not letterTally(my_word).items() <= letterTally(other_word).items():
-        return False
-
-    return True
 */
