@@ -115,3 +115,106 @@ function num_unique_letters(secret_word) {
   }
   return count;
 }
+
+// ===HELPER FUNCTIONS FOR HANGMAN WITH HINTS
+function reduceList(myList, num) {
+  /*
+  Given a long list of words and num (length of word), a list of words on with
+  num length is returned.
+  */
+  return myList.filter(word => (word.length === num));
+}
+
+function matchLetter(letter1, letter2) {
+  /*
+  given two letters, functions returns true if they match (or the first letter
+  is '_') and returns false otherwise.
+  */
+  letter1 = letter1.toLowerCase();
+  if (letter1 === letter2) return true;
+  else if (letter1 === '_') return true;
+  else return false;
+}
+
+
+function letterTally(word) {
+  /*
+  Given a string (word), a dict which counts letters
+  in form of {'a':1, 'b':2} is returned.
+  */
+  var wordCount = {};
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] !== '_' && !wordCount.hasOwnProperty(word[i])) {
+      wordCount[word[i]] = 1;
+    } else if (word[i] !== '_' && wordCount.hasOwnProperty(word[i])) {
+      wordCount[word[i]] += 1;
+    }
+  }
+  return wordCount;
+}
+
+
+function removeSpaces(word) {
+//  Given a string (word), a string is returned with all spaces removed.
+  return word.replace(/ /g, '');
+}
+
+
+function removeUnderscores(word) {
+  /*
+  Given a string (word), all spaces are removed per removeSpaces, all '_' are
+  removed and the string is returned.
+  */
+  word = removeSpaces(word);
+  return word.replace(/_/g, '');
+}
+
+
+function match_with_gaps(my_word, other_word) {
+  /*
+  my_word: string with _ characters, current guess of secret word
+  other_word: string, regular English word
+  returns: boolean, True if all the actual letters of my_word match the
+      corresponding letters of other_word, or the letter is the special symbol
+      _ , and my_word and other_word are of the same length;
+      False otherwise:
+  */
+  my_word = removeSpaces(my_word);
+  other_word = removeSpaces(other_word);
+  
+  for (let i = 0; i < my_word.length; i++) {
+    if (!matchLetter(my_word[i], other_word[i])) {
+      return false;
+    }
+  }
+  
+  
+
+}
+/*
+def match_with_gaps(my_word, other_word):
+    '''
+    my_word: string with _ characters, current guess of secret word
+    other_word: string, regular English word
+    returns: boolean, True if all the actual letters of my_word match the
+        corresponding letters of other_word, or the letter is the special symbol
+        _ , and my_word and other_word are of the same length;
+        False otherwise:
+    '''
+    # FILL IN YOUR CODE HERE AND DELETE "pass"
+    my_word = removeSpaces(my_word)
+    other_word = removeSpaces(other_word)
+
+    for i, letter in enumerate(my_word):
+        if not matchLetter(my_word[i], other_word[i]):
+            return False
+
+    #This function checks if the letterTally in my_word is found in other_word.
+        #Why? if the letters aren't found and the counts are not the same,
+        #the word is not a possible match.
+    # https://stackoverflow.com/questions/9323749/python-check-if-one-dictionary-is-a-subset-of-another-larger-dictionary/41579450#41579450
+    if not letterTally(my_word).items() <= letterTally(other_word).items():
+        return False
+
+    return True
+*/
