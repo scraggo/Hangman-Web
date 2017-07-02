@@ -12,8 +12,6 @@ function choose_word(wordArray) {
   return wordArray[Math.floor(Math.random() * wordArray.length)];
 }
 
-let secret_word = choose_word(load_words(wordList));
-
 
 function is_word_guessed(secret_word, letters_guessed) {
   /*
@@ -74,7 +72,9 @@ function get_user_guess() {
   returns -1 if invalid. returns userGuess otherwise.
   ADDITIONS: if userGuess == '*' then it's returned.
   */
-  var userGuess = prompt('Please guess a letter: ').toLowerCase();
+  var userGuess = prompt('Please guess a letter: ')
+  if (userGuess === null) return -1;
+  userGuess = userGuess.toLowerCase();
   if (userGuess.length !== 1) return -1;
   if (userGuess === '*') return userGuess;
   if (lowerLetters.indexOf(userGuess) === -1) return -1;

@@ -23,7 +23,7 @@
 // console.log(get_available_letters(letters_guessed))
 
 //passed
-//console.log(get_user_guess());
+// console.log(get_user_guess());
 
 //passed
 //display_num_warnings(3);
@@ -77,3 +77,11 @@
 // show_possible_matches('a__le');
 // show_possible_matches('xy_ldf');
 // show_possible_matches('coo___');
+
+
+
+//GAME
+let secret_word = choose_word(load_words(wordList));
+// var secret_word = 'guess';
+var wordArray = load_words(wordList);
+hangman_with_hints(secret_word)

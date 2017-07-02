@@ -26,4 +26,4 @@ Create Hangman game in vanilla JavaScript including:
 - Where to host? Codepen is one idea.
 
 ## I'm on...
-- Line 55 of hangman.js
+- Testing and working properly. The prompt window gets in the way when checking hints. But, we're going to make a UI that doesn't have that issue.
