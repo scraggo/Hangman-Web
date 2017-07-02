@@ -40,13 +40,13 @@ function is_word_guessed(secret_word, letters_guessed) {
   // represents which letters in secret_word have been guessed so far.
 function get_guessed_word(secret_word, letters_guessed) {
   var dash_word = '';
-  for (let x = 0; x < secret_word.length; x++) {
-    if (letters_guessed.indexOf(secret_word[x]) > -1) {
-      dash_word += secret_word[x]
+  secret_word = secret_word.split("");
+  secret_word.forEach( (letter) => {
+    if (letters_guessed.indexOf(letter) > -1) {
+      dash_word += letter;
     } else {
       dash_word += '_ ';
-    }
-  }
+    }});
   return dash_word;
 }
 
@@ -56,14 +56,14 @@ function get_guessed_word(secret_word, letters_guessed) {
     // letters have not yet been guessed.
 function get_available_letters(letters_guessed) {
   var not_guessed = '';
-  for (let x = 0; x < lowerLetters.length; x++) {
-    if (letters_guessed.indexOf(lowerLetters[x]) === -1) {
-      not_guessed += lowerLetters[x];
+  var lowerLettersArray = lowerLetters.split("");
+  lowerLettersArray.forEach((letter) => {
+    if (letters_guessed.indexOf(letter) === -1) {
+      not_guessed += letter;
     }
-  }
+  });
   return not_guessed;
 }
-
 
 // ===MORE HELPER FUNCTIONS===
 function get_user_guess() {
@@ -106,13 +106,14 @@ function penalty(warnings) {
 function num_unique_letters(secret_word) {
   //Given a secret_word, the number of unique letters is returned.
   var count = 0;
+  secret_word = secret_word.split("");
   var unique = [];
-  for (var i = 0; i<secret_word.length; i++) {
-    if (unique.indexOf(secret_word[i]) === -1) {
-      unique.push(secret_word[i]);
+  secret_word.forEach((letter) => {
+    if (unique.indexOf(letter) === -1) {
+      unique.push(letter);
       count += 1;
     }
-  }
+  });
   return count;
 }
 
@@ -143,13 +144,14 @@ function letterTally(word) {
   in form of {'a':1, 'b':2} is returned.
   */
   var wordCount = {};
-  for (let i = 0; i < word.length; i++) {
-    if (word[i] !== '_' && !wordCount.hasOwnProperty(word[i])) {
-      wordCount[word[i]] = 1;
-    } else if (word[i] !== '_' && wordCount.hasOwnProperty(word[i])) {
-      wordCount[word[i]] += 1;
+  var wordArray = word.split("");
+  wordArray.forEach((letter) => {
+    if (letter !== '_' && !wordCount.hasOwnProperty(letter)) {
+      wordCount[letter] = 1;
+    } else if (letter !== '_' && wordCount.hasOwnProperty(letter)) {
+      wordCount[letter] += 1;
     }
-  }
+  });
   return wordCount;
 }
 
