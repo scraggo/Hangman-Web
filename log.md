@@ -22,9 +22,10 @@ Create Hangman game in vanilla JavaScript including:
 ## Issues
 - Best way to load word list?
 - Best way to split up duties?
-- Use ES6 / Babel?
+- Use ES6 / Babel? Yes
 - Where to host? Codepen is one idea.
 
 ## I'm on...
-- line 208 - converting to for...in syntax (much nicer to look at)
-- Testing and working properly. The prompt window gets in the way when checking hints. But, we're going to make a UI that doesn't have that issue.
+- Testing and working properly.
+- Hints are now displayed in an alert window. It works fine, but only so many words are displayed, then a ...
+- We're going to make a UI that doesn't have that issue.

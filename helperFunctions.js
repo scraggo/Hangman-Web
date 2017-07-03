@@ -103,10 +103,12 @@ function penalty(warnings) {
 
 
 function num_unique_letters(secret_word) {
-  //Given a secret_word, the number of unique letters is returned.
-  //FYI:
-  //The total score is the number of  guesses_remaining  once the user has
-  //guessed the  secret_word  times the number of unique letters in  secret_word.
+  /*
+  Given a secret_word, the number of unique letters is returned.
+  FYI:
+  The total score is the number of  guesses_remaining  once the user has
+  guessed the  secret_word  times the number of unique letters in  secret_word.
+  */
   var count = 0;
   var unique = [];
   for (let letter of secret_word) {
@@ -215,7 +217,8 @@ function show_possible_matches(my_word) {
              that has already been revealed.
   */
   my_word = removeSpaces(my_word);
-  var myList = reduceList(wordArray, my_word.length);//caution: wordArray is global
+  //caution: wordArray is global and myList is an array
+  var myList = reduceList(wordArray, my_word.length);
   var possible_matches = [];
   for (let i = 0; i < myList.length; i++) {
     if (match_with_gaps(my_word, myList[i])) {
@@ -224,16 +227,11 @@ function show_possible_matches(my_word) {
   }
 
   if (possible_matches.length > 0) {
-    console.log('Possible word matches are:');
+    var matchesOutput = 'Possible word matches are: \n';
     for (let i = 0; i < possible_matches.length; i++) {
-      console.log(possible_matches[i]);//want to print in one line
-      // process.stdout.write(possible_matches[i]);
+      //prints matches in one line
+      matchesOutput += possible_matches[i] + ' ';
     }
+    alert(matchesOutput);
   } else console.log('No matches found');
 }
-
-// === END HELPER FUNCTIONS
-
-
-/*
-*/
