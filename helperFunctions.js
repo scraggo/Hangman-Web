@@ -1,4 +1,4 @@
-const lowerLetters = "abcdefghijklmnopqrstuvwxyz";
+
 
 function load_words(wordString) {
   return wordString.split(" ");
@@ -23,10 +23,8 @@ function is_word_guessed(secret_word, letters_guessed) {
   letters_guessed;
     False otherwise
   */
-  secret_word = secret_word.split("");
-  letters_guessed = letters_guessed.split("");
-  for (let i = 0; i < secret_word.length; i++) {
-    if (letters_guessed.indexOf(secret_word[i]) === -1) {
+  for (let letter of secret_word) {
+    if (letters_guessed.indexOf(letter) === -1) {
       return false;
     }
   }
@@ -144,14 +142,13 @@ function letterTally(word) {
   in form of {'a':1, 'b':2} is returned.
   */
   var wordCount = {};
-  var wordArray = word.split("");
-  wordArray.forEach((letter) => {
+  for (let letter of word) {
     if (letter !== '_' && !wordCount.hasOwnProperty(letter)) {
       wordCount[letter] = 1;
     } else if (letter !== '_' && wordCount.hasOwnProperty(letter)) {
       wordCount[letter] += 1;
     }
-  });
+  }
   return wordCount;
 }
 

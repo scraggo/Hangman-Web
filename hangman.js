@@ -1,4 +1,6 @@
-//Slowly translating from python.
+//GLOBALS
+const lowerLetters = "abcdefghijklmnopqrstuvwxyz";
+var wordArray = load_words(wordList);
 
 function hangman_with_hints(secret_word) {
     /*
@@ -90,29 +92,24 @@ function hangman_with_hints(secret_word) {
             }
   }
 }
-// # -----------------------------------
+// === GAME ===
+// MAKE SURE TO COMMENT OUT TEST BELOW
 
+function playGame() {
+    let secret_word = choose_word(load_words(wordList));
+    hangman_with_hints(secret_word);
+}
 
-// # When you've completed your hangman_with_hint function, comment the two similar
-// # lines above that were used to run the hangman function, and then uncomment
-// # these two lines and run this file to test!
-// # Hint: You might want to pick your own secret_word while you're testing.
+playGame();
 
+// === TEST GAME === 
+// MAKE SURE TO COMMENT OUT ABOVE
 
-// if __name__ == "__main__":
-//     # pass
+function testGame() {
+    let secret_word = 'guess';
+    //OR
+    let secret_word = choose_word(load_words(wordList));
+    hangman_with_hints(secret_word)
+}
 
-//     # To test part 2, comment out the pass line above and
-//     # uncomment the following two lines.
-
-//     # secret_word = choose_word(wordlist)
-//     # hangman(secret_word)
-
-
-// ###############
-
-//     # To test part 3 re-comment out the above lines and
-//     # uncomment the following two lines.
-
-//     secret_word = choose_word(wordlist)
-//     hangman_with_hints(secret_word)
+// testGame();
