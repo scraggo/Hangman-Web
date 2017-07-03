@@ -185,8 +185,11 @@ function match_with_gaps(my_word, other_word) {
   my_word = removeSpaces(my_word);
   other_word = removeSpaces(other_word);
   
-  for (let i = 0; i < my_word.length; i++) {
-    if (!matchLetter(my_word[i], other_word[i])) {
+  my_word = removeSpaces(my_word);
+  other_word = removeSpaces(other_word);
+  
+  for (let [i, letter] of Array.from(my_word).entries()) {
+    if (!matchLetter(letter, other_word[i])) {
       return false;
       }
     }
@@ -195,13 +198,27 @@ function match_with_gaps(my_word, other_word) {
     var item;
     for (item in myTally) {
       if (otherTally[item] !== myTally[item]) {
-      //   console.log(item);
-      // }
       return false;
       }
-    } 
+    }
     return true;
   }
+  // for (let i = 0; i < my_word.length; i++) {
+  //   if (!matchLetter(my_word[i], other_word[i])) {
+  //     return false;
+  //     }
+  //   }
+  //   var myTally = letterTally(my_word);
+  //   var otherTally = letterTally(other_word);
+  //   var item;
+  //   for (item in myTally) {
+  //     if (otherTally[item] !== myTally[item]) {
+  //       return false;
+  //     }
+  //   } 
+  //   return true;
+  // }
+
 
 
 function show_possible_matches(my_word) {
