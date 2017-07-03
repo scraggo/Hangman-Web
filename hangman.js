@@ -1,6 +1,6 @@
 //GLOBALS
 const lowerLetters = "abcdefghijklmnopqrstuvwxyz";
-var wordArray = load_words(wordList);
+const wordArray = load_words(wordList);
 
 function hangman_with_hints(secret_word) {
     /*

@@ -1,5 +1,3 @@
-
-
 function load_words(wordString) {
   return wordString.split(" ");
 }
@@ -32,36 +30,40 @@ function is_word_guessed(secret_word, letters_guessed) {
 }
 
 
-  // secret_word: string, the word the user is guessing
-  // letters_guessed: list (of letters), which letters have been guessed so far
-  // returns: string, comprised of letters, underscores (_), and spaces that
-  // represents which letters in secret_word have been guessed so far.
 function get_guessed_word(secret_word, letters_guessed) {
+  /* 
+    secret_word: string, the word the user is guessing
+    letters_guessed: list (of letters), which letters have been guessed so far
+    returns: string, comprised of letters, underscores (_), and spaces that
+    represents which letters in secret_word have been guessed so far.
+  */
   var dash_word = '';
-  secret_word = secret_word.split("");
-  secret_word.forEach( (letter) => {
+  for (let letter of secret_word) {
     if (letters_guessed.indexOf(letter) > -1) {
       dash_word += letter;
     } else {
       dash_word += '_ ';
-    }});
+    }
+  }
   return dash_word;
 }
 
 
-    // letters_guessed: list (of letters), which letters have been guessed so far
-    // returns: string (of letters), comprised of letters that represents which
-    // letters have not yet been guessed.
 function get_available_letters(letters_guessed) {
+    /*
+    letters_guessed: list (of letters), which letters have been guessed so far
+    returns: string (of letters), comprised of letters that represents which
+    letters have not yet been guessed.
+    */
   var not_guessed = '';
-  var lowerLettersArray = lowerLetters.split("");
-  lowerLettersArray.forEach((letter) => {
+	for (let letter of lowerLetters) {
     if (letters_guessed.indexOf(letter) === -1) {
       not_guessed += letter;
     }
-  });
+  }
   return not_guessed;
 }
+
 
 // ===MORE HELPER FUNCTIONS===
 function get_user_guess() {
@@ -99,21 +101,23 @@ function penalty(warnings) {
   if (warnings < 0) return true;
 }
 
-//The total score is the number of  guesses_remaining  once the user has
-//guessed the  secret_word  times the number of unique letters in  secret_word .
+
 function num_unique_letters(secret_word) {
   //Given a secret_word, the number of unique letters is returned.
+  //FYI:
+  //The total score is the number of  guesses_remaining  once the user has
+  //guessed the  secret_word  times the number of unique letters in  secret_word.
   var count = 0;
-  secret_word = secret_word.split("");
   var unique = [];
-  secret_word.forEach((letter) => {
+  for (let letter of secret_word) {
     if (unique.indexOf(letter) === -1) {
       unique.push(letter);
       count += 1;
     }
-  });
+  }
   return count;
 }
+
 
 // ===HELPER FUNCTIONS FOR HANGMAN WITH HINTS
 function reduceList(myList, num) {
